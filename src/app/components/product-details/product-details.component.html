@@ -1,0 +1,17 @@
+<div class="container mt-5 col-12">
+    <div class="card w-76">
+        <img [src]="product?.productImage?.url" class="card-img-top" [alt]="">
+        <div class="card-body mb-4">
+          <h3 class="card-title mb-3">{{product?.name}}</h3>
+          <h5 class="mb-3">Category : <small class="text-muted" *ngFor="let c of product.category">
+            {{c?.name}}  </small></h5>
+          <h5 class="mb-3">Unit Price : <small class="text-muted">{{product?.price | currency : "INR"}}</small></h5>
+          <h5>Description :</h5>
+          <p class="card-text mb-3">{{product?.description}}</p>
+          <h5 class="mb-3">Created at : <small class="text-muted">{{product?.dateCreated}}</small></h5>
+          <h5 class="mb-3" *ngIf="product?.currentStock > 0">Units In Stock : <small class="text-muted">{{product?.currentStock}}</small></h5>
+          <h5 class="mb-3" *ngIf="product?.currentStock === 0">Units In Stock : <small class="text-danger">Out of Stock</small></h5>
+          <a class="btn btn-primary" (click)="addToCart()">Add to Cart</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div class="product-header mb-1">
+        <h2>All products</h2>   
+    </div>
+    <div class="header_fixed">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Image</th>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>In-Shell Stock</th>
+                    <th>Current Stock</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td>{{product?.id}}</td>
+                    <td class="w-20"><img [src]="product?.productImage?.url" width="100px" height="80px" /></td>
+                    <td>{{product.name}}</td>
+                    <td>
+                        <div *ngFor="let c of product.category">
+                            {{c?.name}}&nbsp;&nbsp;
+                        </div>
+                    </td>
+                    
+                    <td>{{product.price}}</td>
+                    <td>{{product?.inShellStock}}</td>
+                    <td>{{product?.currentStock}}</td>
+                    <td>
+                        <button class="edit-btn" [routerLink]="['/edit/product', product.id]"><i class="bi bi-pencil-square"></i></button>
+                        <button class="delete-btn"><i class="bi bi-trash-fill" (click)="removeProduct(product.id)"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

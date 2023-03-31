@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center align-items-center inner-row">
+            <div class="col-md-5">
+                <div class="form-box p-5">
+                    <div class="form-title">
+                        <h2 class="fw-bold mb-3">
+                            Add Product
+                        </h2>
+                    </div>
+                    <form [formGroup] = "addProductForm" (ngSubmit)="onFormSubmit()">
+                        <div class="form-floating mb-3">
+                        <input type="text" formControlName="title" class="form-control form-control-sm"  placeholder="Enter Product Title" id="floatingTitle">
+                        <label for="floatingTitle">Title</label>
+                        <small style="color: red;"
+                            *ngIf="addProductForm.controls['title'].touched && addProductForm.controls['title'].invalid">
+                            <span *ngIf="addProductForm.controls['title'].errors['required']">Title is required</span>
+                        </small>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea formControlName="description" class="form-control form-control-sm" rows="3"  placeholder="Enter Product Description" id="floatingDescription"></textarea>
+                            <label for="floatingDescription">Description</label>
+                            <small style="color: red;"
+                                *ngIf="addProductForm.controls['description'].touched && addProductForm.controls['description'].invalid">
+                                <span *ngIf="addProductForm.controls['description'].errors['required']">Description is required</span>
+                            </small>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" formControlName="price" class="form-control form-control-sm"  placeholder="Enter Product Price" id="floatingPrice">
+                            <label for="floatingPrice">Price</label>
+                            <small style="color: red;"
+                            *ngIf="addProductForm.controls['price'].touched && addProductForm.controls['price'].invalid">
+                            <span *ngIf="addProductForm.controls['price'].errors['required']">Price is required</span>
+                            </small>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <ng-select class="custom" placeholder="Select Categories" id="floatingCategory" [multiple]="true" (change)="selectedElements($event)">
+                                <ng-option [ngStyle]="{'padding':'50px 0px'}" [value]="c" *ngFor="let c of categories">{{c.name}}</ng-option>
+                            <label for="floatingCategory">Category</label>
+                            </ng-select>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="file" class="form-control form-control-sm" placeholder="Enter Product Image" id="floatingImage" (change)="onFileSelected($event)">
+                            <!-- <small style="color: red;"
+                                *ngIf="addProductForm.controls['imageUrl'].touched && addProductForm.controls['imageUrl'].invalid">
+                                <span *ngIf="addProductForm.controls['imageUrl'].errors['required']">Image is required</span>
+                            </small> -->
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" formControlName="unitsInStock" class="form-control form-control-sm"  placeholder="Enter units in stock" id="floatingInStock">
+                            <label for="floatingInStock">Units In Stock</label>
+                            <small style="color: red;"
+                            *ngIf="addProductForm.controls['unitsInStock'].touched && addProductForm.controls['unitsInStock'].invalid">
+                            <span *ngIf="addProductForm.controls['unitsInStock'].errors['required']">Units in Stock are required</span>
+                            </small>
+                        </div>
+                        <div class="mt-3">
+                        <input type="submit" class="btn btn-success text-white" value="Add" [disabled] = "!addProductForm.valid">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

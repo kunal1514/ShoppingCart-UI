@@ -1,0 +1,12 @@
+.ng-select-container {
+    padding: 13px 0px;
+}
+
+.ng-select .ng-select-container .ng-value-container .ng-placeholder {
+    color: #212529;
+}
+
+.ng-select .ng-select-container .ng-value-container .ng-select-placeholder {
+    display: flex;
+    align-items: center;
+  }

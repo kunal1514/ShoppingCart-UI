@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.header_fixed {
+    max-height: 100vh;
+    width: 100%;
+    overflow: auto;
+    border: 1px solid #dddddd;
+    margin-left: 7%;
+    margin-bottom: 30px;
+}
+
+.header_fixed thead th {
+    position: sticky;
+    top: 0;
+    background-color: black;
+    color: #e6e7e8;
+    font-size: 15px;
+}
+
+th,
+td {
+    border-bottom: 1px solid #dddddd;
+    padding: 8px 18px;
+    font-size: 18px;
+}
+
+td .add-btn:hover {
+    color: #44b478;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+td .minus-btn:hover {
+    color: #44b478;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+.product-header {
+    margin-left: 7%;
+    font-size: 35px;
+    letter-spacing: 1px;
+    display: flex;
+}
+
+.totals {
+    margin-left: 7%;
+    font-size: 35px;
+    letter-spacing: 1px;
+    display: flex;
+}
+
+.edit-btn {
+    border: none;
+    background-color: #fff;
+    color: #FFB200;
+    font-size: 25px;
+    margin-right: 3px;
+}
+
+.delete-btn {
+    border: none;
+    background-color: #fff;
+    color: #CC3636;
+    font-size: 25px;
+    margin-left: 3px;
+}
